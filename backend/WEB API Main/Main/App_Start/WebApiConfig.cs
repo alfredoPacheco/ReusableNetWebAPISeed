@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
 
 namespace ReusableWebAPI
@@ -11,6 +12,12 @@ namespace ReusableWebAPI
         {
             // Web API configuration and services
 
+            //Enable Cors
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+            //Global Authorization specified:
+            //config.Filters.Add(new AuthorizeAttribute());
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +26,8 @@ namespace ReusableWebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
 
         //so we can use BaseController:
