@@ -31,11 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\main\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\WEB API Main\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\main\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\WEB API Main\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RepositoryLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,17 +55,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\SampleContext.cs" />
+    <Compile Include="EF\Asset.cs" />
+    <Compile Include="EF\AssetsContext.cs" />
+    <Compile Include="EF\cat_Area.cs" />
+    <Compile Include="EF\cat_DutyLevel.cs" />
+    <Compile Include="EF\cat_Location.cs" />
+    <Compile Include="EF\Company.cs" />
+    <Compile Include="EF\cross_Emploee_Asset.cs" />
+    <Compile Include="EF\Department.cs" />
+    <Compile Include="EF\Emploee.cs" />
+    <Compile Include="Entities\cat_Location.cs" />
+    <Compile Include="Entities\cat_DutyLevel.cs" />
+    <Compile Include="Entities\cat_Area.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\Emploee.cs" />
+    <Compile Include="Entities\Asset.cs" />
     <Compile Include="MainContext.cs" />
+    <Compile Include="Migrations\201609200127589_Initial.cs" />
+    <Compile Include="Migrations\201609200127589_Initial.Designer.cs">
+      <DependentUpon>201609200127589_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609200132045_UserAndTrack.cs" />
+    <Compile Include="Migrations\201609200132045_UserAndTrack.Designer.cs">
+      <DependentUpon>201609200132045_UserAndTrack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Logic\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609200127589_Initial.resx">
+      <DependentUpon>201609200127589_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609200132045_UserAndTrack.resx">
+      <DependentUpon>201609200132045_UserAndTrack.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

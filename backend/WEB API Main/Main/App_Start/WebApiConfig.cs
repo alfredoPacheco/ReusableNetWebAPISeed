@@ -16,10 +16,10 @@ namespace ReusableWebAPI
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             //Global Authorization specified:
-            //config.Filters.Add(new AuthorizeAttribute());
+            config.Filters.Add(new AuthorizeAttribute());
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            config.MapHttpAttributeRoutes(new CustomDirectRouteProvider());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

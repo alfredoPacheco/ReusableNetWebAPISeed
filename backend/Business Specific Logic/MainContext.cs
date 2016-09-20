@@ -2,7 +2,7 @@
 
 namespace BusinessSpecificLogic
 {
-    public partial class MainContext : SampleContext
+    public partial class MainContext : AssetsContext
     {
     }
 }
